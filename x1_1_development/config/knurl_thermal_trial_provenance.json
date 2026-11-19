@@ -1,0 +1,20 @@
+{
+  "description": "有齿纹热模型在本次指导中使用的试算资料；输入未标定，材料牌号和单位体系仍需用户确认。",
+  "unit_system_assumption": "N-mm-s-tonne-C（待用户确认）",
+  "materials": {
+    "Copper": {
+      "conductivity": {"value":385, "unit":"N/(s*K)", "status":"试算", "source":"https://ntrs.nasa.gov/api/citations/20230001953/downloads/ENAE%20691%20Spring23%20Thermal%20Cottingham.pdf", "note":"示例室温铜；不能证明与实际铜材完全一致。"},
+      "specific heat": {"value":385000000, "unit":"N*mm/(tonne*K)", "status":"试算", "source":"https://aries.pppl.gov/LIB/PROPS/PANOS/cu.html", "note":"385 J/(kg*K) 换算；模型单位需核对。"},
+      "inelastic heat fraction": {"value":0.9, "unit":"1", "status":"试算", "source":"https://docs.software.vt.edu/abaqusv2026/English/SIMACAECAERefMap/simacae-t-prpthermalinelasticheatfraction.htm", "note":"Abaqus 默认示例，不是材料实测值。"},
+      "plastic": {"value":90, "parameters":{"B":292,"n":0.31,"m":1.09,"melting":1082.85,"transition":20.85}, "unit":"MPa及摄氏度", "status":"试算", "source":"https://www.osti.gov/servlets/purl/10192108", "note":"以退火铜数据为参考；A 90 为模型原值，资料为 89.6；m=1.09，294 K 与 1356 K 换算为 20.85 C 与 1082.85 C。"}
+    },
+    "Al2O3": {
+      "conductivity": {"value":30, "unit":"N/(s*K)", "status":"试算", "source":"https://www.ceramtec-industrial.com/fileadmin/user_upload/Corporate/11_Downloads/05_Ceramaseal/CeramTec_ctna_materials.pdf", "note":"参考 99.5% 氧化铝，实际 DBC 牌号和纯度未确认。"},
+      "specific heat": {"value":800000000, "unit":"N*mm/(tonne*K)", "status":"试算", "source":"https://www.ceramtec-industrial.com/fileadmin/user_upload/Corporate/11_Downloads/05_Ceramaseal/CeramTec_ctna_materials.pdf", "note":"800 J/(kg*K) 换算；实际牌号未确认。"}
+    },
+    "Steel": {
+      "conductivity": {"value":19, "unit":"N/(s*K)", "status":"试算", "source":"https://steelselector.sij.si/data/pdf/BRM2.pdf", "note":"参考 M2 高速工具钢；实际焊头牌号未确认。"},
+      "specific heat": {"value":460000000, "unit":"N*mm/(tonne*K)", "status":"试算", "source":"https://steelselector.sij.si/data/pdf/BRM2.pdf", "note":"460 J/(kg*K) 换算；实际焊头牌号未确认。"}
+    }
+  }
+}
